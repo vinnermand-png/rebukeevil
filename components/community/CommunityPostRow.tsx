@@ -1,3 +1,37 @@
 import type { CommunityPost, Profile } from '@/lib/community-types';
-function timeAgo(date: string) { const minutes = Math.max(1, Math.floor((Date.now() - new Date(date).getTime()) / 60000)); return minutes < 60 ? `${minutes} MIN AGO` : `${Math.floor(minutes / 60)} HR AGO`; }
-export default function CommunityPostRow({ post, profile, replyCount, prayerCount }: { post: CommunityPost; profile?: Profile; replyCount: number; prayerCount: number }) { return <a href={`/community/post/${post.id}`} className="group garrison-paper block border-b border-[#66645d]/50 px-4 py-4 text-[#1e1c18] transition-colors hover:bg-[#e0d3bc] md:px-5"><div className="grid gap-4 md:grid-cols-[140px_minmax(0,1fr)_150px] md:items-center"><div className="garrison-placeholder hidden h-[82px] items-center justify-center border border-[#66645d]/50 bg-[#c7b798] text-center mono text-[8px] leading-4 text-[#66645d] md:flex">POST IMAGE<br/>PLACEHOLDER</div><div className="min-w-0"><div className="flex items-start justify-between gap-5 md:block"><p className="mono text-[10px] text-[#7a1f1c]">{post.type} / {post.id.slice(0, 4)}</p><span className="mono text-[9px] text-[#66645d] md:hidden">{timeAgo(post.created_at)}</span></div><h2 className="serif mt-3 text-[clamp(1.45rem,2.2vw,2rem)] font-bold leading-tight transition-transform duration-300 group-hover:translate-x-1">{post.title}</h2><p className="serif mt-2 line-clamp-2 text-[16px] leading-relaxed text-[#2b2924]">{post.body}</p><div className="mt-3 flex flex-wrap gap-x-5 gap-y-2 mono text-[9px] text-[#66645d]"><span>@{profile?.username || 'UNKNOWN'}</span><span className="md:hidden">{timeAgo(post.created_at)}</span></div></div><div className="hidden items-end justify-between gap-3 md:flex md:flex-col"><span className="mono text-[9px] text-[#66645d]">{timeAgo(post.created_at)}</span><div className="flex gap-4 mono text-[9px] text-[#66645d]"><span>{prayerCount} PRAYED</span><span>{replyCount} REPLIES</span></div><span className="text-xl text-[#5e1717] transition-transform duration-300 group-hover:translate-x-1">→</span></div><div className="flex gap-5 mono text-[9px] text-[#66645d] md:hidden"><span>{prayerCount} PRAYED</span><span>{replyCount} REPLIES</span><span className="ml-auto text-xl text-[#5e1717]">→</span></div></div></a>; }
+
+function timeAgo(date: string) {
+  const minutes = Math.max(1, Math.floor((Date.now() - new Date(date).getTime()) / 60000));
+  return minutes < 60 ? `${minutes} MIN AGO` : `${Math.floor(minutes / 60)} HR AGO`;
+}
+
+const typeTone: Record<string, string> = {
+  PRAYER: 'bg-[#82231f] text-[#f0e8d8]',
+  TESTIMONY: 'bg-[#a8894e] text-[#171714]',
+  ACCOUNTABILITY: 'bg-[#373630] text-[#f0e8d8]',
+};
+
+export default function CommunityPostRow({ post, profile, replyCount, prayerCount }: { post: CommunityPost; profile?: Profile; replyCount: number; prayerCount: number }) {
+  return (
+    <a href={`/community/post/${post.id}`} className="group garrison-paper block border-b border-[#8d826d]/35 text-[#211f1a] transition-colors hover:bg-[#eadfc9]">
+      <div className="grid gap-4 px-4 py-4 md:grid-cols-[132px_minmax(0,1fr)_145px] md:items-center md:px-5">
+        <div className="garrison-thumb hidden h-[86px] border border-[#7e7566]/55 md:block" />
+
+        <div className="min-w-0">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className={`px-2 py-1 mono text-[8px] ${typeTone[post.type] || 'bg-[#373630] text-[#f0e8d8]'}`}>{post.type}</span>
+            <span className="mono text-[8px] text-[#756e62]">@{profile?.username || 'UNKNOWN'}</span>
+            <span className="mono text-[8px] text-[#8d826d]">· {timeAgo(post.created_at)}</span>
+          </div>
+          <h2 className="serif mt-2 text-[clamp(1.25rem,1.7vw,1.6rem)] font-bold leading-tight">{post.title}</h2>
+          <p className="serif mt-1.5 line-clamp-2 text-[15px] leading-relaxed text-[#3b372f]">{post.body}</p>
+        </div>
+
+        <div className="flex items-center justify-between gap-4 md:flex-col md:items-end md:justify-center">
+          <div className="flex gap-4 mono text-[8px] text-[#6f685d]"><span>† {prayerCount} PRAYED</span><span>▱ {replyCount} REPLIES</span></div>
+          <span className="text-xl text-[#82231f] transition-transform duration-200 group-hover:translate-x-1">→</span>
+        </div>
+      </div>
+    </a>
+  );
+}
