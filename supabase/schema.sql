@@ -19,6 +19,11 @@ update public.links set cta_label = 'VISIT' where cta_label is null;
 alter table public.links alter column cta_label set default 'VISIT';
 alter table public.links alter column cta_label set not null;
 alter table public.links alter column sort_order set default 0;
+do $$ begin
+  if not exists (select 1 from pg_constraint where conname = 'links_url_protocol_check') then
+    alter table public.links add constraint links_url_protocol_check check (lower(split_part(url, ':', 1)) in ('http', 'https'));
+  end if;
+end $$;
 
 alter table public.links enable row level security;
 

@@ -16,7 +16,7 @@ export default function LinkEditor({ initial, onSave, onCancel }: { initial?: Li
     setError('');
     if (!form.platform.trim()) { setError('Please enter a platform.'); return; }
     if (!form.url.trim()) { setError('Please enter a URL.'); return; }
-    try { new URL(form.url.trim()); } catch { setError('Please enter a valid URL, including https://.'); return; }
+    try { const parsed = new URL(form.url.trim()); if (!['http:', 'https:'].includes(parsed.protocol)) throw new Error(); } catch { setError('Please enter a valid http:// or https:// URL.'); return; }
     setSaving(true);
     try { await onSave({ title: form.platform.trim(), url: form.url.trim(), subtitle: form.displayText.trim(), is_active: form.active }); }
     catch (saveError) { setError(saveError instanceof Error ? saveError.message : 'COULD NOT SAVE LINK. PLEASE TRY AGAIN.'); setSaving(false); }
