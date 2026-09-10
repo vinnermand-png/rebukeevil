@@ -11,11 +11,21 @@ const typeTone: Record<string, string> = {
   ACCOUNTABILITY: 'bg-[#373630] text-[#f0e8d8]',
 };
 
+const typeImage: Record<string, { src: string; position: string }> = {
+  PRAYER: { src: '/garrison/garrison-post-1.jpg', position: '22% center' },
+  TESTIMONY: { src: '/garrison/garrison-post-2.jpg', position: '72% center' },
+  ACCOUNTABILITY: { src: '/garrison/garrison-post-3.jpg', position: '48% center' },
+};
+
 export default function CommunityPostRow({ post, profile, replyCount, prayerCount }: { post: CommunityPost; profile?: Profile; replyCount: number; prayerCount: number }) {
+  const image = typeImage[post.type] || { src: '/garrison/garrison-post-4.jpg', position: 'center' };
   return (
     <a href={`/community/post/${post.id}`} className="group garrison-paper block border-b border-[#8d826d]/35 text-[#211f1a] transition-colors hover:bg-[#eadfc9]">
       <div className="grid gap-4 px-4 py-4 md:grid-cols-[132px_minmax(0,1fr)_145px] md:items-center md:px-5">
-        <div className="garrison-thumb hidden h-[86px] border border-[#7e7566]/55 md:block" />
+        <div className="relative hidden h-[86px] overflow-hidden border border-[#7e7566]/55 bg-[#27251f] md:block">
+          <img src={image.src} alt="" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.035]" style={{ objectPosition: image.position }} />
+          <div className="absolute inset-0 bg-black/10" />
+        </div>
 
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
