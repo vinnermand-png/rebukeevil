@@ -1,0 +1,1 @@
+Garrison visual assets are stored in this directory. Images are generated/cropped for the private community frontend.
