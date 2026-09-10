@@ -1,0 +1,4 @@
+'use client';
+import HelmetLogo from '@/components/HelmetLogo';
+import type { Profile } from '@/lib/community-types';
+export default function GarrisonTopBar({ profile }: { profile?: Profile | null }) { return <header className="flex h-[68px] items-center justify-between border-b border-white/[.14] px-5 md:px-8"><HelmetLogo/><div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-3 lg:flex"><span className="h-1.5 w-1.5 bg-[#a08b5c]"/><span className="mono text-[10px] tracking-[.2em]">THE GARRISON</span></div><div className="flex items-center gap-5"><span className="hidden mono text-[9px] text-[#85847d] sm:inline">NETWORK / LIVE</span><span className="h-2 w-2 rounded-full bg-[#a08b5c]"/><a href={profile ? `/community/profile/${profile.username}` : '/community'} className="mono text-[10px] text-[#aaa9a1]">{profile ? `@${profile.username}` : 'FIELD MEMBER'}</a></div></header>; }
