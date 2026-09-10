@@ -1,0 +1,2 @@
+import HelmetLogo from './HelmetLogo';
+export default function Header() { return <header className="absolute left-0 right-0 top-0 z-10 flex h-[76px] items-center justify-between border-b border-white/[.08] px-6 md:px-12"><HelmetLogo/><nav className="mono flex gap-8 text-[11px] text-[#aaa9a1] md:gap-14"><a href="#about" className="transition-colors hover:text-[#dedbd0]">ABOUT</a><a href="#links-gateway" className="transition-colors hover:text-[#dedbd0]">MY LINKS</a></nav></header>; }

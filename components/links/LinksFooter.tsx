@@ -1,0 +1,1 @@
+export default function LinksFooter() { return <footer className="mono mt-20 border-t border-white/[.14] pt-10 text-center text-[10px] leading-8 text-[#85847d]"><p>EPHESIANS 6:12</p><span className="my-4 block text-[#4d4d48]">│</span><p>REBUKE EVIL — IN JESUS&apos; NAME.</p><p className="mt-8">© 2026 REBUKEEVIL</p><p>ALL GLORY TO GOD.</p></footer>; }
