@@ -15,9 +15,11 @@ export default function GarrisonIntel({ postsToday, prayersToday, prayerRequests
         <div className="p-5"><p className="serif text-lg leading-relaxed">{prayerRequests} {prayerRequests === 1 ? 'request' : 'requests'} from the Garrison.</p><a href="/community?type=PRAYER" className="mono mt-5 inline-block text-[9px] text-[#82231f]">VIEW PRAYER WATCH →</a></div>
       </section>
 
-      <section className="garrison-module garrison-paper border-b border-[#524d42]">
-        <div className="garrison-module-header px-4 py-3 mono text-[10px]">VERSE OF THE DAY</div>
-        <div className="p-5"><p className="serif text-[18px] italic leading-[1.65]">“Submit yourselves therefore to God. Resist the devil, and he will flee from you.”</p><div className="mt-5 flex items-center gap-3"><span className="h-px flex-1 bg-[#8d826d]/45"/><span className="text-[#82231f]">✝</span><span className="h-px flex-1 bg-[#8d826d]/45"/></div><p className="mono mt-4 text-center text-[9px] text-[#82231f]">JAMES 4:7</p></div>
+      <section className="garrison-module relative overflow-hidden border-b border-[#524d42] text-[#f0e8d8]">
+        <img src="/garrison/garrison-verse.jpg" alt="Mountain fortress at sunrise" className="absolute inset-0 h-full w-full object-cover object-[70%_center]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,17,15,.42)_0%,rgba(17,17,15,.72)_45%,rgba(17,17,15,.9)_100%)]" />
+        <div className="garrison-module-header relative z-[1] px-4 py-3 mono text-[10px]">VERSE OF THE DAY</div>
+        <div className="relative z-[1] p-5"><p className="serif text-[18px] italic leading-[1.65] drop-shadow-[0_1px_2px_rgba(0,0,0,.8)]">“Submit yourselves therefore to God. Resist the devil, and he will flee from you.”</p><div className="mt-5 flex items-center gap-3"><span className="h-px flex-1 bg-[#d7c59d]/45"/><span className="text-[#b4362e]">✝</span><span className="h-px flex-1 bg-[#d7c59d]/45"/></div><p className="mono mt-4 text-center text-[9px] text-[#d8bd72]">JAMES 4:7</p></div>
       </section>
 
       <section className="garrison-module garrison-paper">
