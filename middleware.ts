@@ -20,4 +20,4 @@ export async function middleware(request: NextRequest) {
   return response;
 }
 
-export const config = { matcher: ['/admin/:path*', '/links'] };
+export const config = { matcher: ['/admin/:path*', '/links', '/community/:path*'] };
