@@ -1,6 +1,0 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import ScriptureRow from '@/components/ScriptureRow';
-import { scriptureArsenal } from '@/data/scriptureArsenal';
-
-export default function ScripturePage() { return <><Header/><main><section className="relative flex min-h-[78svh] items-end overflow-hidden border-b border-white/[.14] px-6 pb-20 pt-32 md:px-12 md:pb-28"><div className="absolute inset-0 bg-[#070707]"/><img src="/scripture/arsenal-flag.webp" alt="" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[.08]"/><div className="relative z-[1] mx-auto w-full max-w-[1540px]"><p className="mono mb-8 text-[11px] text-[#85847d]">SCRIPTURE ARSENAL</p><p className="mono mb-8 text-[10px] text-[#4d4d48]">FIELD INDEX / 001</p><h1 className="display text-[clamp(4.3rem,10vw,10rem)] leading-[.82]">WHAT ARE<br/>YOU FIGHTING?</h1><p className="serif mt-9 max-w-sm text-[18px] leading-relaxed text-[#aaa9a1]">Find Scripture for the battle in front of you.</p></div></section><section className="px-6 py-20 md:px-12 md:py-28"><div className="mx-auto max-w-[1540px]"><p className="mono mb-10 text-[11px] text-[#85847d]">BATTLE INDEX <span className="text-[#4d4d48]">────────────────</span></p>{scriptureArsenal.map(entry => <ScriptureRow key={entry.slug} entry={entry}/>)}</div></section></main><Footer/></>; }
