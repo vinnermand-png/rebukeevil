@@ -1,0 +1,3 @@
+export const styleFamilies = ['MILITARY GRAIN', 'DEMONIC THREAT', 'CHRIST VICTORIOUS', 'CRUSADER WAR', 'SCRIPTURE DARK', 'MODERN CULTURE', 'PRAYER / SOLITUDE', 'OTHER'];
+export const learnTraits = ['overall mood', 'composition', 'camera angle', 'subject placement', 'typography', 'text placement', 'text density', 'grain', 'contrast', 'lighting', 'color grading', 'negative space', 'framing', 'crop', 'hierarchy', 'texture', 'atmosphere'];
+export const visualTemplates = ['TEMPLATE A / METADATA + HEADLINE', 'TEMPLATE B / HEADLINE + SUBJECT', 'TEMPLATE C / NEGATIVE SPACE', 'TEMPLATE D / ARCHIVAL MILITARY', 'TEMPLATE E / SCRIPTURE DARK'];
