@@ -115,6 +115,7 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: .16em;
 }
 .display { font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-stretch: condensed; letter-spacing: -.035em; }
+.editorial-display { font-family: Georgia, 'Times New Roman', serif; font-weight: 700; letter-spacing: -.045em; }
 .serif { font-family: Georgia, 'Times New Roman', serif; }
 .mono { font-family: 'Courier New', monospace; letter-spacing: .13em; text-transform: uppercase; }
 .section-pad { padding: 7rem clamp(1.5rem, 6vw, 8rem); }
